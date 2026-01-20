@@ -1,0 +1,53 @@
+<div class="page-container">
+  <div class="page-header">
+    <button class="back-btn" routerLink="/home">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Voltar
+    </button>
+    <h1 class="page-title">Ranking Global</h1>
+  </div>
+
+  <div class="ranking-container">
+    <!-- Top 3 Podium -->
+    <div class="podium">
+      <div class="podium-item second" *ngIf="topPlayers[1]">
+        <div class="podium-medal">🥈</div>
+        <img [src]="topPlayers[1].imageUrl || 'https://via.placeholder.com/80'" alt="Avatar" class="podium-avatar">
+        <h3 class="podium-name">{{ topPlayers[1].name }}</h3>
+        <p class="podium-points">{{ topPlayers[1].totalPoints }} pts</p>
+        <div class="podium-base second-place">2º</div>
+      </div>
+
+      <div class="podium-item first" *ngIf="topPlayers[0]">
+        <div class="podium-medal">👑</div>
+        <img [src]="topPlayers[0].imageUrl || 'https://via.placeholder.com/100'" alt="Avatar" class="podium-avatar">
+        <h3 class="podium-name">{{ topPlayers[0].name }}</h3>
+        <p class="podium-points">{{ topPlayers[0].totalPoints }} pts</p>
+        <div class="podium-base first-place">1º</div>
+      </div>
+
+      <div class="podium-item third" *ngIf="topPlayers[2]">
+        <div class="podium-medal">🥉</div>
+        <img [src]="topPlayers[2].imageUrl || 'https://via.placeholder.com/80'" alt="Avatar" class="podium-avatar">
+        <h3 class="podium-name">{{ topPlayers[2].name }}</h3>
+        <p class="podium-points">{{ topPlayers[2].totalPoints }} pts</p>
+        <div class="podium-base third-place">3º</div>
+      </div>
+    </div>
+
+    <!-- Lista de Ranking -->
+    <div class="ranking-list">
+      <div class="ranking-item" *ngFor="let player of otherPlayers; let i = index">
+        <div class="ranking-position">{{ i + 4 }}</div>
+        <img [src]="player.imageUrl || 'https://via.placeholder.com/50'" alt="Avatar" class="ranking-avatar">
+        <div class="ranking-info">
+          <h4 class="ranking-name">{{ player.name }}</h4>
+          <p class="ranking-email">{{ player.email }}</p>
+        </div>
+        <div class="ranking-points">{{ player.totalPoints }} pts</div>
+      </div>
+    </div>
+  </div>
+</div>

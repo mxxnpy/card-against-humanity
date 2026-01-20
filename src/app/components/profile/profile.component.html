@@ -1,0 +1,85 @@
+<div class="page-container">
+  <div class="page-header">
+    <button class="back-btn" routerLink="/home">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Voltar
+    </button>
+    <h1 class="page-title">Meu Perfil</h1>
+  </div>
+
+  <div class="content-grid">
+    <!-- Card de Perfil -->
+    <div class="profile-card">
+      <div class="profile-avatar-section">
+        <img [src]="userProfile?.imageUrl || 'https://via.placeholder.com/120'" alt="Avatar" class="profile-avatar">
+        <button class="edit-avatar-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="profile-info">
+        <h2 class="profile-name">{{ userProfile?.name || 'Usuário' }}</h2>
+        <p class="profile-email">{{ userProfile?.email || 'email@example.com' }}</p>
+        <p class="profile-joined">Membro desde {{ userProfile?.createdAt | date:'dd/MM/yyyy' }}</p>
+      </div>
+    </div>
+
+    <!-- Card de Estatísticas -->
+    <div class="stats-card">
+      <h3 class="card-title">Estatísticas</h3>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <div class="stat-info">
+            <p class="stat-value">{{ userPoints?.totalPoints || 0 }}</p>
+            <p class="stat-label">Total de Pontos</p>
+          </div>
+        </div>
+
+        <div class="stat-item">
+          <div class="stat-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+          </div>
+          <div class="stat-info">
+            <p class="stat-value">#{{ userPoints?.ranking || '-' }}</p>
+            <p class="stat-label">Posição no Ranking</p>
+          </div>
+        </div>
+
+        <div class="stat-item">
+          <div class="stat-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+            </svg>
+          </div>
+          <div class="stat-info">
+            <p class="stat-value">0</p>
+            <p class="stat-label">Partidas Jogadas</p>
+          </div>
+        </div>
+
+        <div class="stat-item">
+          <div class="stat-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <div class="stat-info">
+            <p class="stat-value">0</p>
+            <p class="stat-label">Vitórias</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

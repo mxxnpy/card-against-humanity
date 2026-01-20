@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
+.page-container {
+  min-height: 100vh;
+  padding: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+}
+
+.page-header {
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.back-btn,
+.create-btn {
+  background: #000000;
+  color: #ffffff;
+  border: 2px solid #000000;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  box-shadow: 0 2px 0 #000;
+}
+
+.back-btn:hover,
+.create-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 0 #000;
+}
+
+.create-btn {
+  margin-left: auto;
+}
+
+.page-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.room-card {
+  background: #ffffff;
+  border: 2px solid #000;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 0 #000;
+  transition: all 0.3s ease;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.room-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 0 #000;
+}
+
+.room-card.active {
+  border-color: #00C851;
+}
+
+.room-status {
+  display: inline-block;
+  padding: 6px 12px;
+  background: #00C851;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.room-name {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+}
+
+.room-info {
+  margin-bottom: 20px;
+}
+
+.room-stat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #666;
+  font-size: 14px;
+}
+
+.room-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.room-btn {
+  flex: 1;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  border: 2px solid #000;
+}
+
+.room-btn.primary {
+  background: #000;
+  color: #fff;
+  box-shadow: 0 2px 0 #000;
+}
+
+.room-btn.secondary {
+  background: #fff;
+  color: #000;
+}
+
+.room-btn:hover {
+  transform: translateY(-2px);
+}
+
+.room-btn.primary:hover {
+  box-shadow: 0 4px 0 #000;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  grid-column: 1 / -1;
+}
+
+.empty-state svg {
+  stroke: #ccc;
+  margin-bottom: 20px;
+}
+
+.empty-state h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  color: #666;
+}
+
+.empty-state p {
+  font-size: 16px;
+  color: #999;
+  margin: 0;
+}

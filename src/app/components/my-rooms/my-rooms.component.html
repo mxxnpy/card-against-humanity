@@ -1,0 +1,46 @@
+<div class="page-container">
+  <div class="page-header">
+    <button class="back-btn" routerLink="/home">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Voltar
+    </button>
+    <h1 class="page-title">Minhas Salas</h1>
+    <button class="create-btn" (click)="createRoom()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 5v14M5 12h14"/>
+      </svg>
+      Nova Sala
+    </button>
+  </div>
+
+  <div class="rooms-grid">
+    <!-- Sala Ativa -->
+    <div class="room-card active" *ngFor="let room of activeRooms">
+      <div class="room-status">🟢 Ativa</div>
+      <h3 class="room-name">Sala #{{ room.sessionId.slice(0, 8) }}</h3>
+      <div class="room-info">
+        <div class="room-stat">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+          </svg>
+          <span>{{ room.users.length }} jogadores</span>
+        </div>
+      </div>
+      <div class="room-actions">
+        <button class="room-btn primary" (click)="joinRoom(room.sessionId)">Entrar</button>
+        <button class="room-btn secondary" (click)="shareRoom(room.sessionId)">Compartilhar</button>
+      </div>
+    </div>
+
+    <!-- Salas Vazias -->
+    <div class="empty-state" *ngIf="activeRooms.length === 0">
+      <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+      </svg>
+      <h3>Nenhuma sala ativa</h3>
+      <p>Crie uma nova sala para começar a jogar!</p>
+    </div>
+  </div>
+</div>

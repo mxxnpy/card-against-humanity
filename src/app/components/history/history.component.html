@@ -1,0 +1,49 @@
+<div class="page-container">
+  <div class="page-header">
+    <button class="back-btn" routerLink="/home">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Voltar
+    </button>
+    <h1 class="page-title">Histórico de Partidas</h1>
+  </div>
+
+  <div class="history-list">
+    <!-- Item de Histórico -->
+    <div class="history-item" *ngFor="let match of matches">
+      <div class="history-date">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+        </svg>
+        <span>{{ match.date | date:'dd/MM/yyyy HH:mm' }}</span>
+      </div>
+      <div class="history-content">
+        <div class="history-result" [class.victory]="match.isWinner">
+          <span class="result-badge">{{ match.isWinner ? '🏆 Vitória' : '💀 Derrota' }}</span>
+          <span class="result-points">+{{ match.pointsEarned }} pontos</span>
+        </div>
+        <div class="history-players">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+          </svg>
+          <span>{{ match.playerCount }} jogadores</span>
+        </div>
+      </div>
+      <button class="history-details-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 5l7 7-7 7"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Estado Vazio -->
+    <div class="empty-state" *ngIf="matches.length === 0">
+      <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+      </svg>
+      <h3>Nenhuma partida jogada</h3>
+      <p>Seu histórico aparecerá aqui após jogar algumas partidas!</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
+.page-container {
+  min-height: 100vh;
+  padding: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+}
+
+.page-header {
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.back-btn {
+  background: #000000;
+  color: #ffffff;
+  border: 2px solid #000000;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  box-shadow: 0 2px 0 #000;
+}
+
+.back-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 0 #000;
+}
+
+.page-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.history-item {
+  background: #ffffff;
+  border: 2px solid #000;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 2px 0 #000;
+  transition: all 0.3s ease;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.history-item:hover {
+  transform: translateX(8px);
+  box-shadow: 0 4px 0 #000;
+}
+
+.history-date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #666;
+  font-size: 14px;
+  min-width: 150px;
+}
+
+.history-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.history-result {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.result-badge {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 14px;
+  background: #DC143C;
+  color: #fff;
+}
+
+.history-result.victory .result-badge {
+  background: #00C851;
+}
+
+.result-points {
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+}
+
+.history-players {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #666;
+  font-size: 14px;
+}
+
+.history-details-btn {
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.history-details-btn:hover {
+  background: #000;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.history-details-btn svg {
+  stroke: currentColor;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.empty-state svg {
+  stroke: #ccc;
+  margin-bottom: 20px;
+}
+
+.empty-state h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  color: #666;
+}
+
+.empty-state p {
+  font-size: 16px;
+  color: #999;
+  margin: 0;
+}
